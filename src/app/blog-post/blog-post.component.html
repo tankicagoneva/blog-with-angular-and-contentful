@@ -1,0 +1,14 @@
+<main *ngIf="blogPost$ | async as blogPost">
+  <div class="post-container">
+    <img [src]="blogPost.fields.featuredImage.fields.file.url" alt="" />
+    <h2>{{ blogPost.fields.title }}</h2>
+    <p class="author">{{ blogPost.fields.author }}</p>
+    <p
+      class="content"
+      [innerHtml]="_returnHtmlFromRichText(blogPost.fields.content)"
+    ></p>
+    <!-- <markdown ngPreserveWhitespaces >
+      {{ blogPost.fields.content }}
+    </markdown> -->
+  </div>
+</main>
